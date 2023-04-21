@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=>, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,7 +31,7 @@
             <p>11:32</p>
             <hr />
           </div>
-          <div class="location">Christchurch</div>
+          <div class="location" id="city"></div>
 
           <div class="row">
             <div class="col-md-6">
@@ -48,12 +49,12 @@
             </div>
             <div class="col-md-6">
               <ul>
-                <li>High: 20°</li>
-                <li>Low: 10°</li>
-                <li>Humidity: 50%</li>
+                <li>High: <span id="high"></span>°</li>
+                <li>Low: <span id="low"></span>°</li>
+                <li>Humidity: <span id="humidity"></span>%</li>
               </ul>
             </div>
-            <div class="weather-description">Partly Cloudy</div>
+            <div class="weather-description" id="description"></div>
           </div>
         </div>
         <small>
