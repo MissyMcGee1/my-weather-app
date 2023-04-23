@@ -9,7 +9,6 @@ let days = [
   "Friday",
   "Saturday",
 ];
-//let day = days[now.getDay()];
 
 let months = [
   "January",
@@ -48,6 +47,7 @@ function displayTemperature(response) {
   let highElement = document.querySelector("#high");
   let lowElement = document.querySelector("#low");
   let humidityElement = document.querySelector("#humidity");
+  let iconElement = document.querySelector("#icon");
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
@@ -55,9 +55,15 @@ function displayTemperature(response) {
   highElement.innerHTML = Math.round(response.data.main.temp_max);
   lowElement.innerHTML = Math.round(response.data.main.temp_min);
   humidityElement.innerHTML = Math.round(response.data.main.humidity);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 let apiKey = "f27f74487839d0a5db5e847ad1689803";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Christchurch&appid=${apiKey}&units=metric`;
+let city = "Christchurch";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(displayTemperature);
