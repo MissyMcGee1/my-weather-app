@@ -40,7 +40,6 @@ let dateNow = document.querySelector("#date");
 dateNow.innerHTML = `${day} ${month} ${date} <br> ${hours}: ${minutes}`;
 
 function displayTemperature(response) {
-  console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
@@ -62,8 +61,22 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-let apiKey = "f27f74487839d0a5db5e847ad1689803";
-let city = "Christchurch";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+function search(city) {
+  let apiKey = "f27f74487839d0a5db5e847ad1689803";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+}
 
-axios.get(apiUrl).then(displayTemperature);
+function submitCity(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  let cityName = document.querySelector("#city");
+  if (cityInputElement.value) {
+    cityName.innerHTML = `${cityInputElement.value}`;
+    search(cityInputElement.value);
+  }
+}
+search("Christchurch");
+
+let form = document.querySelector("search-form");
+form.addEventListener("submit", submitCity);
