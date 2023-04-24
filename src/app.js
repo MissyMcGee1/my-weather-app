@@ -45,17 +45,15 @@ function displayTemperature(response) {
   let descriptionElement = document.querySelector("#description");
   let highElement = document.querySelector("#high");
   let lowElement = document.querySelector("#low");
-  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind-speed");
   let iconElement = document.querySelector("#icon");
-
-  //celsiusTemp = response.data.main.temp;
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   highElement.innerHTML = Math.round(response.data.main.temp_max);
   lowElement.innerHTML = Math.round(response.data.main.temp_min);
-  humidityElement.innerHTML = Math.round(response.data.main.humidity);
+  windElement.innerHTML = Math.round(response.data.wind.speed);
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -63,7 +61,6 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-//code copied from Shecodes chat
 function search(event) {
   event.preventDefault();
   let cityInputElement = document.querySelector("#city-input");
