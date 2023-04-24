@@ -48,6 +48,8 @@ function displayTemperature(response) {
   let humidityElement = document.querySelector("#humidity");
   let iconElement = document.querySelector("#icon");
 
+  //celsiusTemp = response.data.main.temp;
+
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
@@ -61,22 +63,32 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-function search(city) {
-  let apiKey = "f27f74487839d0a5db5e847ad1689803";
+//code copied from Shecodes chat
+function search(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  searchCity(cityInputElement.value);
+}
+
+function searchCity(city) {
+  let apiKey = "3b5f3e51ce51ffad1f79b84acf0944ed";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
 }
 
-function submitCity(event) {
-  event.preventDefault();
-  let cityInputElement = document.querySelector("#city-input");
-  let cityName = document.querySelector("#city");
-  if (cityInputElement.value) {
-    cityName.innerHTML = `${cityInputElement.value}`;
-    search(cityInputElement.value);
-  }
-}
-search("Christchurch");
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", search);
 
-let form = document.querySelector("search-form");
-form.addEventListener("submit", submitCity);
+searchCity("Christchurch");
+
+//let fahrenheitLink = document.querySelector("#fahrenheit-link");
+//fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
+
+// function displayFahrenheitTemp(event) {
+//   event.preventDefault();
+//   let temperatureElement = document.querySelector("#temperature");
+//   let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+//   temperatureElement.innerHTML = Math.round(fahrenheitTemp);
+// }
+
+// let celsiusTemp = null;
