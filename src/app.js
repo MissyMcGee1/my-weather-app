@@ -39,6 +39,38 @@ if (minutes < 10) {
 let dateNow = document.querySelector("#date");
 dateNow.innerHTML = `${day} ${month} ${date} <br> ${hours}: ${minutes}`;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = [
+    "Saturday",
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+  ];
+
+  let forecastHTML = `<div class="row">`;
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col-2">
+      <img src="images/partlysunny.png" alt="" width="42" />
+        <div class="weather-forecast-date">${day}</div>
+        <div class="weather-forecast-temp">
+          <span class="weather-forecast-temp-max">18°</span>
+          <span class="weather-forecast-temp-min">12°</span>
+      </div>
+    </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
@@ -77,3 +109,4 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
 
 searchCity("Christchurch");
+displayForecast();
