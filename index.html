@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;500;800&display=swap"
       rel="stylesheet"
     />
     <link
@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="src/style.css" />
     <title>Weather Application</title>
   </head>
-  <body>
+  <body class="body-main" style="background-image: url(images/mountain_bg.jpg)">
     <div class="container">
       <div class="weather-app-wrapper">
         <div class="weather-app">
@@ -65,9 +65,18 @@
             </div>
             <div class="col-md-6">
               <ul>
-                <li>High: <span id="high"></span>°</li>
-                <li>Low: <span id="low"></span>°</li>
-                <li>Wind Speed: <span id="wind-speed"></span>km/h</li>
+                <li>
+                  <span class="list-title">High: </span>
+                  <span id="high"></span>°
+                </li>
+                <li>
+                  <span class="list-title">Low: </span>
+                  <span id="low"></span>°
+                </li>
+                <li>
+                  <span class="list-title">Wind Speed:</span>
+                  <span id="wind-speed"></span>km/h
+                </li>
               </ul>
             </div>
             <div class="weather-description" id="description"></div>

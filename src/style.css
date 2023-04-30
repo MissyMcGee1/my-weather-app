@@ -21,10 +21,9 @@ ul {
 
 li {
   list-style: none;
-  margin: 0;
+  margin-top: 5px;
   padding: 0;
   font-size: 14px;
-
   line-height: 20px;
   text-align: left;
 }
@@ -40,15 +39,20 @@ a {
 }
 .weather-app {
   padding: 20px;
-  border: 1px solid #dadde1;
-  border-radius: 10px;
+  border: hidden;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 10px 10px 20px -10px rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 .form-control {
   font-size: 10px;
   color: #212121;
-  background-color: #f0f0f0;
-  border: transparent;
+  background-color: #ebebeb;
+  border: 1px solid #cecece;
   border-radius: 30px;
   padding: 10px 20px;
   height: 30px;
@@ -59,8 +63,8 @@ a {
   border: transparent;
   border-radius: 50px;
   padding: 0;
-  color: #212121;
-  background-color: #f0f0f0;
+  color: #ffffff;
+  background-color: #1d87ff;
   height: 30px;
 }
 
@@ -103,15 +107,29 @@ a {
   color: #212121;
 }
 
+.weather-forecast .col-2 {
+  background-color: white;
+  max-width: 84px;
+  margin-left: 10px;
+  border-radius: 10px;
+  height: 110px;
+  padding-top: 10px;
+}
+
 .weather-forecast-date {
   font-size: 12px;
   color: #212121;
+  font-weight: 800;
 }
 
-.weather.forecast.temp {
-  font-size: 18px;
+.weather-forecast-temp {
+  font-size: 15px;
 }
 
 .weather-forecast-temp-min {
   opacity: 0.5;
+}
+
+.list-title {
+  font-weight: 800;
 }
