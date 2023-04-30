@@ -30,36 +30,47 @@ function formatDay(timestamp) {
   return days[day];
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
-  let days = [
-    "Saturday",
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-  ];
 
   let forecastHTML = `<div class="row">`;
-
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
     <div class="col-2">
-      <img src="images/partlysunny.png" alt="" width="42" />
-        <div class="weather-forecast-date">${day}</div>
+      <img src="http://openweathermap.org/img/wn/${
+        forecastDay.weather[0].icon
+      }@2x.png"
+           alt="" 
+           width="42"
+           />
+        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
         <div class="weather-forecast-temp">
-          <span class="weather-forecast-temp-max">18°</span>
-          <span class="weather-forecast-temp-min">12°</span>
+          <span class="weather-forecast-temp-max">${Math.round(
+            forecastDay.temp.max
+          )}°</span>
+          <span class="weather-forecast-temp-min">${Math.round(
+            forecastDay.temp.min
+          )}°</span>
       </div>
     </div>
   `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "f3009e4852fa0a079dab291dabf020c4";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function displayTemperature(response) {
@@ -85,13 +96,7 @@ function displayTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
-  console.log(response.data);
-}
-
-function search(event) {
-  event.preventDefault();
-  let cityInputElement = document.querySelector("#city-input");
-  searchCity(cityInputElement.value);
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -100,8 +105,13 @@ function searchCity(city) {
   axios.get(apiUrl).then(displayTemperature);
 }
 
+function search(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  searchCity(cityInputElement.value);
+}
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
 
 searchCity("Christchurch");
-displayForecast();
