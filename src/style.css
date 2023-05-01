@@ -1,6 +1,6 @@
 body {
   font-family: "Manrope", sans-serif;
-  color: #212121;
+  color: #fff;
 }
 
 h1 {
@@ -12,6 +12,7 @@ hr {
   margin-top: 15px;
   margin-bottom: 12px;
   margin-top: 12px;
+  border: 1px solid rgba(72, 101, 202, 0.9);
 }
 
 ul {
@@ -28,17 +29,25 @@ li {
 }
 
 small {
-  font-size: 12px;
-  color: #ebebeb;
+  font-size: 16px;
 }
 
 a {
-  font-size: 12px;
-  color: #ebebeb;
+  font-size: 16px;
+  color: #fff;
 }
+
+a:hover {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 200ms ease-in-out;
+}
+
 .body-main {
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: #f1f1f1;
+  background-blend-mode: multiply;
 }
 
 .weather-app-wrapper {
@@ -48,29 +57,29 @@ a {
 }
 .weather-app {
   padding: 50px;
-  margin-top: 100px;
-  border: hidden;
+  padding-bottom: 80px;
+  margin-top: 60px;
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: 10px 10px 20px -10px rgba(255, 255, 255, 0.2);
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(29, 40, 78, 0.9);
+  box-shadow: 10px 10px 20px -10px rgba(72, 101, 202, 0.5);
+  border: 1px solid rgba(72, 101, 202, 1);
   backdrop-filter: blur(10px);
 }
 
 .form-control {
   font-size: 16px;
-  color: #212121;
-  background-color: #fefefb;
-  border: 1px solid #ef653e;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(72, 101, 202, 0.5);
   border-radius: 30px;
   padding: 10px 20px;
   height: 50px;
 }
 
 .form-control:focus {
-  border-color: #ff9058;
   box-shadow: none;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgb(106, 138, 255);
 }
 
 .btn {
@@ -78,14 +87,14 @@ a {
   border: transparent;
   border-radius: 50px;
   padding: 0;
-  color: #fefefb;
-  background: #ef653e;
+  color: rgb(29, 40, 78);
+  background: #fff;
   transition: all 200ms ease-in-out;
   height: 50px;
 }
 
 .btn:hover {
-  background: #ff9058;
+  background: rgba(72, 101, 202, 1);
 }
 
 .overview {
@@ -107,18 +116,19 @@ a {
 .weather-temperature strong {
   font-size: 122px;
   line-height: 1;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 .weather-temperature .units {
   position: relative;
-  font-size: 18px;
-  font-weight: 300;
-  top: -46px;
+  font-size: 30px;
+  font-weight: 500;
+  top: -67px;
 }
 
 .list-title {
-  font-weight: 800;
+  font-weight: 500;
+  color: rgb(171, 189, 255);
 }
 
 .weather-description {
@@ -126,26 +136,28 @@ a {
   text-transform: capitalize;
   margin-top: 5px;
   margin-bottom: 15px;
+  margin-left: 90px;
 }
 
 .weather-forecast {
   margin-top: 20px;
   text-align: center;
-  color: #212121;
+  color: #fff;
 }
 
 .weather-forecast .col-2 {
-  background-color: #fefefb;
+  border: 1px solid rgb(72, 101, 202);
+  background: rgba(29, 40, 78, 0.7);
   max-width: 140px;
   margin-left: 10px;
   border-radius: 10px;
-  height: 160px;
+  height: 200px;
   padding-top: 30px;
 }
 
 .weather-forecast-date {
   font-size: 22px;
-  color: #212121;
+  color: rgb(171, 189, 255);
   font-weight: 500;
 }
 
