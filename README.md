@@ -6,7 +6,7 @@ A user friendly weather application where users can search for a city and fetch 
 
 ## Authors
 
-- [@MissyMcGee1](https://www.github.com/octokatherine)
+- [@MissyMcGee1](https://www.github.com/MissyMcgee1)
 
 
 ## Features
