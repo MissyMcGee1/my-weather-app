@@ -1,13 +1,10 @@
-
 # Weather App
 
-A user friendly weather application where users can search for a city and fetch the current and weekly forcast for the location. 
-
+A user friendly weather application where users can search for a city and fetch the current and weekly forcast for the location.
 
 ## Authors
 
 - [@MissyMcGee1](https://www.github.com/MissyMcgee1)
-
 
 ## Features
 
@@ -18,26 +15,21 @@ A user friendly weather application where users can search for a city and fetch 
 - Weather Icons and Graphics: The application incorporates weather icons or relevant graphics to enhance the visual representation of weather conditions.
 - API Integration: The application integrates with OpenWeather API to fetch accurate and up-to-date weather information.
 
-
 ## Tech Stack
 
 **Server:** HTML, CSS, JavaScript
 
 **Client:** API, Figma
 
-
-
-
 ## 🚀 About Me
-I am a junior front-end developer who has a diploma in Full Stack Web Development and several Front-end Web Development certificates. I am currently studying React and actively seeking full time employment. 
 
+I am a junior front-end developer who has a diploma in Full Stack Web Development and several Front-end Web Development certificates. I am currently studying React and actively seeking full time employment.
 
 ## 🛠 Skills
-Javascript, HTML, CSS, API, Figma, React
 
+Javascript, HTML, CSS, API, Figma
 
 ## 🔗 Links
+
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://missymcgee.com/)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/missy-mcgee/)
-
-
